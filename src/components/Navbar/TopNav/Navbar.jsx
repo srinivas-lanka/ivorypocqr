@@ -45,9 +45,9 @@ const Navbar = ({ ...other }) => {
   const handleImageClick = () => {};
 
   const logOut = useCallback(() => {
-    axios.defaults.headers.common.authorization = "";
     sessionStorage.clear();
     navigate("/");
+    window.location.reload()
   }, [navigate]);
 
   return (

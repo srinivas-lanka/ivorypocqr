@@ -5,7 +5,7 @@ import MuiDrawer from "../../components/Navbar/SideNav/Drawer";
 import DrawList from "../../components/Navbar/SideNav/DrawerList";
 import Navbar from "../../components/Navbar/TopNav/Navbar";
 import { Outlet, useNavigate } from "react-router-dom";
-const NavMenu = () => {
+const NavMenu = ({QrImg,setQrImg}) => {
   const navigate = useNavigate();
   const [timer, setTimer] = useState(900);
   // ! Auto Logout
@@ -46,8 +46,8 @@ const NavMenu = () => {
   return (
     <Stack direction={"row"}>
       <Navbar />
-      <MuiDrawer style={{ zIndex: 9999999 }}>
-        <DrawList />
+      <MuiDrawer style={{ zIndex: 9999997 }}>
+        <DrawList QrImg={QrImg} setQrImg={setQrImg}/>
       </MuiDrawer>
       <CardWrapper>{<Outlet />}</CardWrapper>
     </Stack>

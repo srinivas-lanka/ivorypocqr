@@ -9,7 +9,7 @@ const NotFound = lazy(() => import("../Pages/Error/NotFound"));
 const FacePage = lazy(() => import("../Pages/LoginTypes/Face.tsx"));
 const DashboardPage = lazy(() => import("../Pages/Dashboard/Dashboard"));
 
-const HandleRoutes = () => (
+const HandleRoutes = ({QrImg,setQrImg}) => (
   <Routes>
     {/* Public Routes */}
     <Route path={PATHS.login} element={<LoginPage />} />
@@ -17,8 +17,8 @@ const HandleRoutes = () => (
     <Route path={PATHS.face} element={<FacePage />} />
     {/* Private Routes */}
     <Route element={<ProtectedRoutes />}>
-      <Route element={<MenuBar />}>
-        <Route path={PATHS.dashboard} element={<DashboardPage />} />
+      <Route element={<MenuBar QrImg={QrImg} setQrImg={setQrImg}/>}>
+        <Route path={PATHS.dashboard} element={<DashboardPage QrImg={QrImg} setQrImg={setQrImg}/>} />
       </Route>
     </Route>
   </Routes>

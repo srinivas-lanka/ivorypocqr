@@ -4,10 +4,13 @@ import { Box } from "@mui/material";
 
 // ! Re_usable Component
 
-const DrawList = ({ setIsOpen }) => {
+const DrawList = ({ setQrImg }) => {
   const face = "SAd";
   const profile_pic = "SAd";
   const response = JSON.parse(sessionStorage.getItem("response"));
+  const  handleClickOpen = () =>{
+    setQrImg(true)
+  }
   return (
     <Box width='280px'>
       <Typography
@@ -149,16 +152,19 @@ const DrawList = ({ setIsOpen }) => {
               src={
                 face?.length
                   ? `${
-                      "https://efreshsoftwares.in/ivrdigital/" +
+                      "https://eservices.aptiway.com/api/" +
                       response?.userData[0]?.qr_image
                     }`
                   : profile_pic
               }
               style={{
-                width: "120px",
-                height: "120px",
-                objectFit: "cover",
+                margin:'-1rem',
+                width: "140px",
+                height: "140px",
+                objectFit: "contain",
+                cursor: "pointer",
               }}
+              onClick={handleClickOpen}
             />
           </Box>
         </CardContent>

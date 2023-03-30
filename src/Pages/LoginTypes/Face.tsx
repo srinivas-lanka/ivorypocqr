@@ -13,6 +13,8 @@ const Face = () => {
   const navigate = useNavigate();
   const response = JSON.parse(sessionStorage.getItem("response") as string);
   const auth = JSON.parse(sessionStorage.getItem("auth") as string);
+  const authCheck = JSON.parse(sessionStorage.getItem("authCheck") as string);
+  const mode = JSON.parse(sessionStorage.getItem("mode")  as string);
   // ! useCase of useLocalStorage Hook
   // const [{ identityNumber }] = useLocalStorage("Details");
   const [croppedImage, setCroppedImage] = useState<string>("");
@@ -102,6 +104,7 @@ const Face = () => {
 
         if (data?.verificationResult === true) {
           navigate(PATHS.dashboard);
+          window.location.reload()
         } else if (data?.verificationResult === false) {
           if (data?.error?.errorMessage === "Verification Failed") {
             toast.error("Authentication failed, face mismatch");
@@ -117,6 +120,9 @@ const Face = () => {
   };
 
   useEffect(() => {
+   if(authCheck?.statusCode==200){
+    navigate("/dashboard");
+   }
     if (response?.statusCode !== 200 || !response?.statusCode) {
       navigate("/");
     }

@@ -1,6 +1,8 @@
 import HandleRoutes from "./Routes/HandleRoutes";
 import { ToastContainer } from "react-toastify";
+import {useState} from 'react'
 const App = () => {
+  const [QrImg,setQrImg] = useState(false)
   return (
     <>
       <ToastContainer
@@ -13,7 +15,7 @@ const App = () => {
         progress={undefined}
       />
 
-      <HandleRoutes />
+      <HandleRoutes QrImg={QrImg} setQrImg={setQrImg}/>
     </>
   );
 };

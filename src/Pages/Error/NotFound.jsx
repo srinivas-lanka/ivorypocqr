@@ -23,7 +23,7 @@ const NotFound = () => {
           fontWeight={600}
           letterSpacing={3}
         >
-          <span style={{ color: "red" }}> 404 Error </span> - Page Not Found
+          <span style={{ color: "red" }}> 404 Error </span> - Not Found
         </Typography>
       </Stack>
     </Paper>
